@@ -15,5 +15,4 @@ chmod 755 -R build/public_html
 
 tar -czvf build/www.tgz -C build/public_html .
 
-scp -P 21098 build/www.tgz qwizgjky@server212.web-hosting.com:/home/qwizgjky/public_html/developer/vinod/
-#scp *.tgz vinod@192.168.0.62:/var/www/html/
+docker cp build/public_html d218afbfc3ad:/var/www/example.com/public_html
