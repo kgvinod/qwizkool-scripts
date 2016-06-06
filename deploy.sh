@@ -1,19 +1,8 @@
-cd ..
-mkdir -p build
-rm -rf build/*
-cd build
-mkdir public_html
+sh ./buildall.sh
 
-cd ../qwizkool-client
-ember build
+cd ../build
+cp -r public_html www
+tar -czvf www.tgz www
 
-cd ..
-cp -r qwizkool-client/dist/* build/public_html
-cp -r slim_api build/public_html
-
-chmod 755 -R build/public_html
-
-tar -czvf build/www.tgz -C build/public_html .
-
-scp -P 21098 build/www.tgz qwizgjky@server212.web-hosting.com:/home/qwizgjky/public_html/developer/vinod/
+scp -P 21098 www.tgz qwizgjky@server212.web-hosting.com:/home/qwizgjky/public_html/developer/vinod/
 #scp *.tgz vinod@192.168.0.62:/var/www/html/
